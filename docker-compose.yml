@@ -14,8 +14,8 @@ services:
     container_name: unbound
     restart: unless-stopped
     hostname: "unbound"
-    volumes:
-      - "./unbound:/opt/unbound/etc/unbound/"
+    #volumes: #In last version it's broke this container.
+    #  - "./unbound:/opt/unbound/etc/unbound/"
     networks:
       private_network:
         ipv4_address: 10.2.0.200
@@ -25,10 +25,10 @@ services:
     environment:
       # ⚠️ Required:
       # Change this to your host's public address
-      - WG_HOST= my.ddns.net
+      - WG_HOST=my.ddns.net
 
       # Optional:
-      - PASSWORD=10h30
+      - PASSWORD=10h30  #CHANGE PASSWORD!
       - WG_PORT=51820
       - WG_DEFAULT_ADDRESS=10.6.0.x
       - WG_DEFAULT_DNS=10.2.0.100
