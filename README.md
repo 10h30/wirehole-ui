@@ -1,12 +1,12 @@
 # All-in-One DNS, VPN, and Pihole server compose.
 
 ## Overview
-This GitHub repository provides a comprehensive, all-in-one network solution using Docker Compose. It integrates **Unbound**, **Pi-hole**, and **wg-easy** to offer a robust combination of DNS resolution, ad-blocking, and VPN capabilities. This setup is ideal for creating a private, secure, and efficient networking environment.
+This GitHub repository provides a comprehensive, all-in-one network solution using Docker Compose. It integrates **Unbound**, **Pi-hole**, and **Wireguard** (wg-easy is Wireguard with a webpage gui) to offer a robust combination of DNS resolution, ad-blocking, and VPN capabilities. This setup is ideal for creating a private, secure, and efficient networking environment.
 
 ### Components
 - **Unbound**: A validating, recursive, and caching DNS resolver.
 - **Pi-hole**: Network-wide ad blocking and DNS server.
-- **wg-easy**: Simple WireGuard VPN server setup.
+- **wg-easy**: Simple WireGuard VPN server setup with a gui.
 
 ## Getting Started
 
