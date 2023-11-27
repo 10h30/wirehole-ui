@@ -35,8 +35,13 @@ services:
     volumes:
       - "./etc-pihole/:/etc/pihole/"
       - "./etc-dnsmasq.d/:/etc/dnsmasq.d/"
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server.
+      - "8080:80/tcp"
     cap_add:
-      - NET_ADMIN # Required for DHCP server functionality only.
+      - NET_ADMIN # Only required if you are using Pi-hole as your DHCP server.
     networks:
       private_network:
         ipv4_address: 10.2.0.100
