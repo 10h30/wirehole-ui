@@ -28,16 +28,15 @@ services:
       - 10.2.0.200 # Points to unbound
     environment:
       TZ: "America/New_York"
-      WEBPASSWORD: "yourpassword" #⚠️ Set a password for pihole here.
+      WEBPASSWORD: "yourpassword" # ⚠️ Set a password for pihole here.
       ServerIP: 10.2.0.100 # Internal IP of pihole
       DNS1: 10.2.0.200 # Unbound IP
       DNS2: 10.2.0.200 # If we don't specify two, it will auto pick google.
     volumes:
       - "./etc-pihole/:/etc/pihole/"
       - "./etc-dnsmasq.d/:/etc/dnsmasq.d/"
-    # Required for DHCP server functionality only.
     cap_add:
-      - NET_ADMIN
+      - NET_ADMIN # Required for DHCP server functionality only.
     networks:
       private_network:
         ipv4_address: 10.2.0.100
@@ -45,8 +44,8 @@ services:
   wg-easy:
     depends_on: [unbound, pihole]
     environment:
-      - WG_HOST= vpn.url.com  #⚠️ Change this to your host's public address or url.
-      - PASSWORD=yourpassword #⚠️ Set a password for wg-easy here.
+      - WG_HOST= vpn.url.com  # ⚠️ Change this to your host's public address or url.
+      - PASSWORD=yourpassword # ⚠️ Set a password for wg-easy here.
       - WG_PORT=51820
       - WG_DEFAULT_ADDRESS=10.6.0.x
       - WG_DEFAULT_DNS=10.2.0.100
