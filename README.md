@@ -1,4 +1,4 @@
-# All-in-One Network Solution
+# All-in-One DNS, VPN, and Pihole server compose.
 
 ## Overview
 This GitHub repository provides a comprehensive, all-in-one network solution using Docker Compose. It integrates **Unbound**, **Pi-hole**, and **wg-easy** to offer a robust combination of DNS resolution, ad-blocking, and VPN capabilities. This setup is ideal for creating a private, secure, and efficient networking environment.
