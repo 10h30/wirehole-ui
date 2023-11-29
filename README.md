@@ -48,6 +48,10 @@ sudo systemctl restart systemd-resolved
 - Make sure to change default passwords and settings for production environments.
 - Regularly update your Docker images for security patches.
 
+## Blocklists
+I highly recommend the blocklists offered by [oisd](https://oisd.nl/setup).
+
+
 ## Support
 For any issues or help regarding the setup, please open an issue in this GitHub repository.
 
