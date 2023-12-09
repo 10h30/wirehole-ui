@@ -53,9 +53,9 @@ services:
       - PASSWORD=yourpassword # ⚠️ Set a password for wg-easy here.
       - WG_PORT=51820
       - WG_PERSISTENT_KEEPALIVE=25
-      - WG_DEFAULT_ADDRESS=10.69.0.x/10
+      - WG_DEFAULT_ADDRESS=10.64.0.x
+      - WG_ALLOWED_IPS=10.64.0.1/10
       - WG_DEFAULT_DNS=10.2.0.11
-      # - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24
 
     image: weejewel/wg-easy:latest
     container_name: wg-easy
