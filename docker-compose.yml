@@ -15,7 +15,7 @@ services:
     hostname: "unbound"
     networks:
       private_network:
-        ipv4_address: 10.2.0.200
+        ipv4_address: 10.2.0.10
 
   pihole:
     depends_on: [unbound]
@@ -25,13 +25,13 @@ services:
     hostname: pihole
     dns:
       - 127.0.0.1
-      - 10.2.0.200 # Points to unbound
+      - 10.2.0.10 # Points to unbound
     environment:
       TZ: "America/New_York"
       WEBPASSWORD: "yourpassword" # ⚠️ Set a password for pihole here.
       ServerIP: 10.2.0.100 # Internal IP of pihole
-      DNS1: 10.2.0.200 # Unbound IP
-      DNS2: 10.2.0.200 # If we don't specify two, it will auto pick google.
+      DNS1: 10.2.0.10 # Unbound IP
+      DNS2: 10.2.0.10 # If we don't specify two, it will auto pick google.
     volumes:
       - "./etc-pihole/:/etc/pihole/"
       - "./etc-dnsmasq.d/:/etc/dnsmasq.d/"
@@ -44,7 +44,7 @@ services:
       - NET_ADMIN # Only required if you are using Pi-hole as your DHCP server.
     networks:
       private_network:
-        ipv4_address: 10.2.0.100
+        ipv4_address: 10.2.0.11
         
   wg-easy:
     depends_on: [unbound, pihole]
@@ -53,8 +53,8 @@ services:
       - PASSWORD=yourpassword # ⚠️ Set a password for wg-easy here.
       - WG_PORT=51820
       - WG_PERSISTENT_KEEPALIVE=25
-      - WG_DEFAULT_ADDRESS=10.6.0.x
-      - WG_DEFAULT_DNS=10.2.0.100
+      - WG_DEFAULT_ADDRESS=10.69.0.x/10
+      - WG_DEFAULT_DNS=10.2.0.11
       # - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24
 
     image: weejewel/wg-easy:latest
@@ -72,8 +72,8 @@ services:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
     dns:
-      - 10.2.0.100 # Points to pihole
-      - 10.2.0.200 # Points to unbound
+      - 10.2.0.11 # Points to pihole
+      - 10.2.0.10 # Points to unbound
     networks:
       private_network:
-        ipv4_address: 10.2.0.3
+        ipv4_address: 10.2.0.12
