@@ -54,7 +54,7 @@ services:
       - WG_PORT=51820
       - WG_PERSISTENT_KEEPALIVE=25
       - WG_DEFAULT_ADDRESS=10.64.0.x
-      - WG_ALLOWED_IPS=10.64.0.1/10
+#      - WG_ALLOWED_IPS=10.64.0.1/10
       - WG_DEFAULT_DNS=10.2.0.11
 
     image: weejewel/wg-easy:latest
